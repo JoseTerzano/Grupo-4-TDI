@@ -20,7 +20,7 @@ Módulo de apoyo. **No se ejecuta solo.** Lo importan los Ejercicios 1, 2, 3 y 4
 - `matplotlib` **solo** para `graficar_histograma_comparativo` (Ej. 1 y 2):
 
 ```bash
-python -m pip install matplotlib
+python -m pip install -r requirements.txt
 ```
 
 ## Importante

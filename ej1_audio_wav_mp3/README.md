@@ -18,13 +18,15 @@ Script: `analizar_audio.py`
 - **`matplotlib` (obligatorio)** — sin él, el script falla en el paso d) con `ModuleNotFoundError`.
 
 ```bash
-python -m pip install matplotlib
+python -m pip install -r requirements.txt
 ```
+
+(Desde la raíz del proyecto. Instala `matplotlib` y `Pillow`; este ejercicio solo necesita `matplotlib`.)
 
 Usar `python -m pip`, no `pip` solo: evita el error `Fatal error in launcher` cuando `pip.exe` apunta a un Python desinstalado.
 
 - Carpeta `../comun` presente.
-- Un archivo `.wav` y un `.mp3` reales (no incluidos).
+- Un archivo `.wav` y un `.mp3` (incluidos en `pruebas/`).
 
 ## Estructura
 
@@ -63,14 +65,14 @@ python ej1_audio_wav_mp3/analizar_audio.py
 ### Resultado esperado
 
 - `[OK]` en ambas validaciones.
-- Cabecera WAV legible (`RIFF`, `WAVE`, `PCM`, 44100 Hz, 16 bits…).
+- Cabecera WAV legible. Con `Ring05.wav`: `RIFF`, `WAVE`, `PCM`, 2 canales, 22050 Hz, 16 bits.
 - Entropía MP3 ≈ 7.9+ bits/símbolo; WAV menor.
-- PNG generado en `resultados/`.
+- PNG generado en `resultados/`. El WAV muestra dos picos en 0 y 255: byte alto de muestras PCM de 16 bits con signo cercanas a cero (positivas → `0x00`, negativas → `0xFF`).
 
 **Recomendación:** usar la misma canción en ambos formatos (convertir con Audacity o ffmpeg) para comparación justa.
 
 ## Limitaciones conocidas
 
-- Asume cabecera WAV **canónica de 44 bytes**. WAV con chunks extra (`LIST`, `fact`, WAV exportados por algunos editores) muestran `Subchunk2ID` y `Subchunk2Size` incorrectos. Entropía no se ve afectada.
+- Asume cabecera WAV **canónica de 44 bytes**. WAV con chunks extra (`LIST`, `fact`, WAV exportados por algunos editores) muestran `Subchunk2ID` y `Subchunk2Size` incorrectos. Entropía no se ve afectada. `Ring05.wav` tiene 152 bytes extra al final (probablemente metadatos): no altera el resultado.
 - Extensión en mayúsculas funciona (`.WAV`); `.wave` no.
 - Tonos sintéticos puros dan entropía WAV alta (~7.5); audio real muestra mejor la diferencia.

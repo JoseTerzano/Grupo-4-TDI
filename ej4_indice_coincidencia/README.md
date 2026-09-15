@@ -4,7 +4,7 @@ Script: `indice_coincidencia.py`
 
 ## Qué hace
 
-- Calcula `IC = Σ f_i(f_i - 1) / (N(N - 1))` por archivo.
+- Calcula `IC = Σ f_i(f_i - 1) / (N(N - 1))` por archivo, en dos versiones: sobre bytes crudos y sobre las 27 letras del español (ver abajo).
 - Calcula también entropía (reutiliza `../comun`).
 - Imprime ambas métricas y explica su relación inversa (más redundancia → mayor IC, menor entropía) y uso en criptoanálisis (Vigenère).
 
@@ -45,4 +45,4 @@ El script muestra dos valores:
 
 Solo el IC por letras es comparable con 0.074. El IC por bytes queda más bajo porque espacios y puntuación reparten la probabilidad.
 
-Verificado con Don Quijote (Gutenberg #2000): IC letras ≈ 0.0745.
+El IC por letras del ZIP da 0.0385 = 1/26 (no 1/27): en bytes aleatorios la Ñ (2 bytes en UTF-8) casi nunca aparece, así que solo quedan 26 letras equiprobables.

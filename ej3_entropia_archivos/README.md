@@ -14,9 +14,7 @@ Script: `entropia_archivo.py`
 - Carpeta `../comun`.
 - **No requiere librerías externas.**
 
-## Cómo probar
-
-### Estructura
+## Estructura
 
 ```
 ej3_entropia_archivos/
@@ -27,6 +25,8 @@ ej3_entropia_archivos/
 ```
 
 Estos archivos también los usa el **Ejercicio 4**. El script solo imprime por consola (no genera archivos de resultados).
+
+## Cómo probar
 
 ### Con los archivos incluidos
 

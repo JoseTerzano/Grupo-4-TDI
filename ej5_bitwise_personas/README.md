@@ -28,7 +28,7 @@ python ej5_bitwise_personas/personas_bitwise.py
 ### Resultado esperado
 
 - Archivos `resultados/personas_variable.json` y `resultados/personas_fijo.bin` (se sobrescriben en cada ejecución).
-- Binario ~70 % más chico.
+- Binario 71.4 % más chico (ahorro de 5454 bytes).
 - Última línea: `[Verificación] Ambos formatos reconstruyen los mismos datos: OK ✓` (probado).
 
 Inspeccionar binario (PowerShell):

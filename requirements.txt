@@ -1,0 +1,11 @@
+# Dependencias externas del Práctico de Máquina 1
+# Instalar desde la raíz del proyecto:
+#     python -m pip install -r requirements.txt
+#
+# Los Ejercicios 3 a 9 solo usan la librería estándar de Python.
+
+# Ej. 1 y 2: histogramas comparativos (comun/entropia_utils.py)
+matplotlib>=3.5
+
+# Ej. 2: regenerar pruebas/prueba.bmp desde prueba.jpg (no está en el repo)
+Pillow>=9.0

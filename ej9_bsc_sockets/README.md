@@ -50,7 +50,7 @@ Diferencia relativa = 0.00%
 Conexión cerrada.
 ```
 
-Resultados idénticos en cada ejecución (semillas fijas). Detener servidor con `Ctrl+C`.
+Resultados idénticos en cada ejecución (semillas fijas). La `p` real oculta en el servidor es **0.060968** (calculada a partir de su semilla): la estimación 0.060868 difiere en 0.0001. Detener servidor con `Ctrl+C`.
 
 ## Problemas comunes
 

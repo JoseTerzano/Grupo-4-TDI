@@ -15,17 +15,16 @@ Script: `analizar_imagen.py`
 ## Dependencias
 
 - Python 3.8+
-- **`matplotlib` (obligatorio)**:
+- **`matplotlib` (obligatorio)** y **`Pillow`** (para regenerar el BMP). Ambos están en `requirements.txt`:
 
 ```bash
-python -m pip install matplotlib
+python -m pip install -r requirements.txt
 ```
 
 Usar `python -m pip`, no `pip` solo: evita el error `Fatal error in launcher` cuando `pip.exe` apunta a un Python desinstalado.
 
 - Carpeta `../comun` presente.
-- Un `.bmp` y un `.jpg` (no incluidos).
-- Opcional: `Pillow` para generar las imágenes de prueba (ya instalado en esta PC).
+- Un `.bmp` y un `.jpg`: `prueba.jpg` está incluido; `prueba.bmp` se regenera (ver abajo).
 
 ## Estructura
 
@@ -33,8 +32,8 @@ Usar `python -m pip`, no `pip` solo: evita el error `Fatal error in launcher` cu
 ej2_imagen_bmp_jpg/
 ├── analizar_imagen.py
 ├── pruebas/
-│   ├── prueba.bmp   <- 3840x2400, generado desde C:\Windows\Web\Wallpaper\Windows\img0.jpg
-│   └── prueba.jpg   <- misma imagen, calidad 85
+│   ├── prueba.bmp   <- NO incluido en el repo (27.6 MB); se regenera desde prueba.jpg
+│   └── prueba.jpg   <- 3840x2400, desde C:\Windows\Web\Wallpaper\Windows\img0.jpg, calidad 85
 └── resultados/
     └── histograma_bmp_vs_jpg.png   <- se regenera en cada ejecución
 ```
@@ -49,13 +48,21 @@ ej2_imagen_bmp_jpg/
 python -c "from PIL import Image; Image.open('ej2_imagen_bmp_jpg/pruebas/prueba.jpg').convert('RGB').save('ej2_imagen_bmp_jpg/pruebas/prueba.bmp')"
 ```
 
-Requiere Pillow (`python -m pip install Pillow`). El BMP regenerado sale del JPG (no del original de Windows), por eso su entropía da **7.558** en vez de 7.546. Diferencia despreciable; la conclusión no cambia.
+Luego ejecutar:
 
 ```bash
 python ej2_imagen_bmp_jpg/analizar_imagen.py ej2_imagen_bmp_jpg/pruebas/prueba.bmp ej2_imagen_bmp_jpg/pruebas/prueba.jpg
 ```
 
-Resultado verificado: BMP 7.55 bits/símbolo (27.6 MB) vs JPG 7.80 bits/símbolo (467 KB).
+Resultado verificado:
+
+| Archivo | Tamaño | Entropía |
+|---|---|---|
+| BMP original (desde el JPG de Windows) | 27.6 MB | 7.546 bits/símbolo |
+| BMP regenerado (desde `prueba.jpg`) | 27.6 MB | 7.558 bits/símbolo |
+| JPG | 467 KB | 7.804 bits/símbolo |
+
+La pequeña diferencia entre ambos BMP se debe a que el regenerado parte del JPG ya comprimido. La conclusión no cambia.
 
 ### Con una foto propia
 
