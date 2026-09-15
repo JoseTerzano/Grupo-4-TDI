@@ -1,0 +1,5 @@
+# Archivos de prueba y resultados: se guardan byte a byte, sin convertir
+# saltos de línea (CRLF/LF). Si Git los convirtiera, cambiaría el tamaño y
+# la entropía medida al clonar el repositorio en otra PC.
+ej*/pruebas/**    binary
+ej*/resultados/** binary

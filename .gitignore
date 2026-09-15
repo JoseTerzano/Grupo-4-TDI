@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Archivo de prueba pesado (27.6 MB): se regenera desde prueba.jpg
+# (ver ej2_imagen_bmp_jpg/README.md)
+ej2_imagen_bmp_jpg/pruebas/prueba.bmp
+
+# Sistema / editores
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
